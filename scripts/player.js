@@ -17,11 +17,16 @@ var Player = function(initialX, initialY)
 }
 
 // Function: Update the player's position, velocity, etc.
-Player.prototype.update = function(XG, YG)
+Player.prototype.update = function(XG, YG, left, right, space)
 {
 	// Increase the player's velocity by the gravity of the world
 	this.XV += XG;
 	this.YV += YG;
+	
+	// Movement
+	if(left) this.X -= 2;
+	if(right) this.X += 2;
+	if(space) this.Y -= 2;
 	
 	// Make sure the player moves, based on the velocity
 	this.X += this.XV;

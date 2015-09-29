@@ -46,8 +46,12 @@ function run()
 		// Update the world
 		world.update();
 		
-		// Update the player
-		player.update(world.XG, world.YG);
+		// Update the player with the keyboard
+		player.update(world.XG,
+				world.YG,
+				keyboard.isKeyDown(keyboard.KEY_LEFT),
+				keyboard.isKeyDown(keyboard.KEY_RIGHT),
+				keyboard.isKeyDown(keyboard.KEY_SPACE));
 	
 	// Drawing Logic
 		// Move Camera
